@@ -22,6 +22,31 @@
   </head>
 
   <body>
+    <!-- Navbar start -->
+    <nav class="navbar">
+      <a href="#" class="navbar-logo">
+        <img src="img/logo ahmet.png" class="logo" />
+        Scond<span>trf</span>.
+      </a>
+
+      <div class="navbar-nav">
+        <a href="#home">Home</a>
+        <a href="#products">Produk</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="masuk.html">Login</a>
+        <a href="daftar.html">Sign In</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="search-button"><i data-feather="search"></i></a>
+        <a href="#" id="shopping-cart-button"
+          ><i data-feather="shopping-cart"></i
+        ></a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+
+    </nav>
+    <!-- Navbar end -->
 
     <!-- Hero Section start -->
     <section class="hero" id="home">
@@ -83,10 +108,9 @@
       </div>
     <!-- About Section end -->
 
-    <!-- Product section -->
-    <section id="products" class="products">
-    <h1>Produk Kami</h1>
-    <div class="product-container">
+      <section id="products" class="products">
+      <h1>Produk Kami</h1>
+      <div class="product-container">
       <?php
       include 'database.php';
 
@@ -107,9 +131,8 @@
           echo "<p>No products available</p>";
       }
       ?>
-    </div>
-  </section>
-  <!-- product section end -->
+      </div>
+      </section>
 
     <!-- Feather Icons -->
     <script>

@@ -4,13 +4,13 @@ include "navigasi/header.php";
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 switch ($page) {
     case 'home':
-        include "home.php";
+        include "page/home.php";
         break;
     case 'produk':
-        include "produk.php";
+        include "page/produk.php";
         break;
     case 'about':
-        include "about.php";
+        include "page/about.php";
         break;
     default:
         include "home.php";
