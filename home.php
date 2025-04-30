@@ -19,7 +19,6 @@
     <!-- My Style -->
     <link rel="stylesheet" href="css/style.css" />
 </head>
-<!-- swswjswijikkk -->
 
 <body>
     <!-- Navbar start -->
@@ -33,7 +32,7 @@
             <a href="#home">Home</a>
             <a href="#products">Produk</a>
             <a href="#about">Tentang Kami</a>
-            <a href="masuk.html">Login</a>
+            <a href="login.php">Login</a>
             <a href="daftar.html">Sign In</a>
         </div>
 
