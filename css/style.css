@@ -374,7 +374,7 @@ h1 {
   color: white;
 }
  /* produk section */
-.products {
+ .products {
   padding: 2rem;
   text-align: center;
 }
@@ -416,7 +416,7 @@ h1 {
 .product-card p {
   font-size: 1rem;
   color: #555;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .btn-cart {
@@ -432,7 +432,6 @@ h1 {
 .btn-cart:hover {
   background: #218838;
 }
-
 /* Mobile Phone */
 @media (max-width: 450px) {
   html {
