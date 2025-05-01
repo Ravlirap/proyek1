@@ -19,6 +19,93 @@
 
     <!-- My Style -->
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+       .products {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.products h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 250px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1rem;
+  text-align: left;
+}
+
+.product-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.product-info p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.product-info p span {
+  font-weight: bold;
+  color: #000;
+}
+
+.btn-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 1rem;
+}
+
+.btn-cart i {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-cart:hover {
+  background: #218838;
+}
+    </style>
   </head>
 
   <body>
@@ -89,23 +176,30 @@
       include 'database.php';
 
       $sql = "SELECT nama, gambar, harga, stok, katalog FROM produk";
-      $result = $conn->query($sql);
+    $result = $conn->query($sql);
 
-      if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-              echo '
-              <div class="product-card">
-                  <img src="img/produk/' . $row["gambar"] . '" alt="' . $row["nama"] . '">
-                  <h3>' . $row["nama"] . '</h3>
-                  <p>Rp.' . $row["harga"] . '</p>
-                  <button class="btn-cart">Add to Cart</button>
-              </div>';
-          }
-      } else {
-          echo "<p>No products available</p>";
-      }
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '
+          <div class="product-card">
+            <div class="product-image">
+               <img src="img/produk/' . $row["gambar"] . '" alt="' . $row["nama"] . '">
+            </div>
+            <div class="product-info">
+                <h3>' . $row["nama"] . '</h3>
+                <p>Katalog: ' . $row["katalog"] . '</p>
+                <p>Stok: ' . $row["stok"] . '</p>
+                <p>Harga: Rp.' . $row["harga"] . '</p>
+                <button class="btn-cart">Add to Cart</button>
+            </div>
+          </div>';
+        }
+    } else {
+        echo "<p>No products available</p>";
+    }
       ?>
       </div>
+      <button>lihat selengkapnya</button>
       </section>
 
     <!-- Feather Icons -->
