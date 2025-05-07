@@ -12,6 +12,9 @@ switch ($page) {
     case 'about':
         include "page/about.php";
         break;
+    case 'produk':
+        include "page/produk.php";
+        break;
     default:
         include "home.php";
         break;
