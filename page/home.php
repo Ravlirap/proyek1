@@ -175,7 +175,7 @@
       <?php
       include 'database.php';
 
-      $sql = "SELECT nama, gambar, harga, stok, katalog FROM produk";
+      $sql = "SELECT nama, gambar, harga, stok, jenis FROM produk";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -187,7 +187,7 @@
             </div>
             <div class="product-info">
                 <h3>' . $row["nama"] . '</h3>
-                <p>Katalog: ' . $row["katalog"] . '</p>
+                <p>jenis: ' . $row["jenis"] . '</p>
                 <p>Stok: ' . $row["stok"] . '</p>
                 <p>Harga: Rp.' . $row["harga"] . '</p>
                 <button class="btn-cart">Add to Cart</button>
