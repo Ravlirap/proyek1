@@ -17,16 +17,16 @@
         <a href="#home">Home</a>
         <a href="#products">Produk</a>
         <a href="#about">Tentang Kami</a>
-        <a href="masuk.html">Login</a>
-        <a href="daftar.html">Sign In</a>
+        <a href="auth/login.php">Login</a>
+        <a href="../auth/signup.php">Sign Up</a>
       </div>
 
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart-button"
-          ><i data-feather="shopping-cart"></i
-        ></a>
+        <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+        <a href="../auth/profil.php" id="user-button"><i data-feather="user"></i></a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        
       </div>
 
     </nav>

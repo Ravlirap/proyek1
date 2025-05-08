@@ -12,6 +12,15 @@ switch ($page) {
     case 'about':
         include "page/about.php";
         break;
+    case 'login':
+        include 'auth/login.php';
+        break;
+    case 'signup':
+        include 'auth/signup.php';
+        break;
+    case 'profil':
+        include 'auth/profil.php';
+        break;
     default:
         include "home.php";
         break;
