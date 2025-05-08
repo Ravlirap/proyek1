@@ -42,10 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: fadeIn 1s ease-in-out;
         }
         .card {
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(71, 70, 70, 0.9));
             border-radius: 25px;
+            animation: fadeIn 1.5s ease-in-out;
         }
         .btn-primary {
             background-color:rgb(56, 152, 255);
@@ -56,6 +58,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .form-label {
             color: #333;
+        }
+        .form-control {
+            border-radius: 20px;
+            border: 1px solid #ccc;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .alert {
+            border-radius: 20px;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+        @keyframes fadeIn {
+            from {
+            opacity: 0;
+            transform: translateY(-20px);
+            }
+            to {
+            opacity: 1;
+            transform: translateY(0);
+            }
         }
     </style>
 </head>

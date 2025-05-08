@@ -56,6 +56,7 @@ exit;
       display: flex;
       justify-content: center;
       align-items: center;
+      animation: fadeIn 1s ease-in-out;
     }
     .card {
        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(71, 70, 70, 0.9));
@@ -63,6 +64,7 @@ exit;
       width: 100%; /* Adjust width */
       max-width: 500px; /* Set maximum width */
       padding: 20px; /* Add padding for better spacing */
+      animation: fadeIn 1.5s ease-in-out;
     }
     .btn-success {
       background-color:rgb(56, 152, 255);
@@ -71,9 +73,29 @@ exit;
     .btn-success:hover {
       background-color: #218838;
     }
-    form {
-  
+    .form-label {
+      color: #333;
     }
+    .form-control {
+      border-radius: 20px;
+    }
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    .alert {
+      border-radius: 20px;
+    }
+    @keyframes fadeIn {
+            from {
+            opacity: 0;
+            transform: translateY(-20px);
+            }
+            to {
+            opacity: 1;
+            transform: translateY(0);
+            }
+        }
   </style>
 </head>
 <body>
@@ -81,7 +103,7 @@ exit;
   <div class="row justify-content-center">
       <div class="col-md-5">
         <div class="card shadow p-3">
-          <h4 class="mb-2 text-center"><strong>Login ke ScondTrf</strong>!</h4>
+          <h4 class="mb-2 text-center"><strong>Daftar ke ScondTrf</strong>!</h4>
           <img src="../img/logo ahmet.png" alt="logo" class="img-fluid rounded-circle" style="width: 100px; display: block; margin: auto;">
           
         <?php if (isset($error)): ?>
