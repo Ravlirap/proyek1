@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Include database connection
 include '../database.php';
 $error = "";
@@ -17,48 +18,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Kode kategori sudah digunakan!";
     } else {
         mysqli_query($conn, "INSERT INTO produk (kode_produk,nama,gambar,harga,stok,jenis) VALUES ('$kode', '$nama', '$gambar', '$harga', '$stok', '$jenis')");
-        header("read.php");
+        $_SESSION['success'] = "Data berhasil dibuat!";
+        header("Location: create.php");
+        exit;
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Produk</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-<div class="container mt-4">
-    <h2>Tambah Produk</h2>
-    <?php if ($error) echo "<div class='alert alert-danger'>$error</div>"; ?>
-    <form method="POST">
-        <div class="mb-3">
-            <label>Kode Produk</label>
-            <input type="text" name="kode_produk" class="form-control" required maxlength="5">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+        .btn-custom {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h2 class="form-title text-center">Tambah Produk</h2>
+                <?php 
+                if (isset($_SESSION['success'])) {
+                    echo "<div class='alert alert-success'>" . $_SESSION['success'] . "</div>";
+                    unset($_SESSION['success']); // Clear the success message
+                }
+                if ($error) echo "<div class='alert alert-danger'>$error</div>"; 
+                ?>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="kode_produk" class="form-label">ID Produk</label>
+                        <input type="text" id="kode_produk" name="kode_produk" class="form-control" required maxlength="5">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Produk</label>
+                        <input type="text" id="nama" name="nama" class="form-control" required maxlength="100">
+                    </div>
+                    <div class="mb-3">
+                        <label for="gambar" class="form-label">Gambar</label>
+                        <input type="file" id="gambar" name="gambar" class="form-control" accept="image/*">
+                    </div>
+                    <div class="mb-3">
+                        <label for="harga" class="form-label">Harga</label>
+                        <input type="number" id="harga" name="harga" class="form-control" required min="0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="stok" class="form-label">Stok</label>
+                        <input type="number" id="stok" name="stok" class="form-control" required min="0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="jenis" class="form-label">Jenis</label>
+                        <input type="text" id="jenis" name="jenis" class="form-control" required maxlength="100">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-custom">Simpan</button>
+                    <a href="read.php" class="btn btn-secondary btn-custom mt-2">Kembali</a>
+                </form>
+            </div>
         </div>
-        <div class="mb-3">
-            <label>Nama Produk</label>
-            <input type="text" name="nama" class="form-control" required maxlength="100">
-        </div>
-        <div class="mb-3">
-            <label>Gambar</label>
-            <input type="text" name="gambar" class="form-control" required maxlength="100">
-        </div>
-        <div class="mb-3">
-            <label>Harga</label>
-            <input type="number" name="harga" class="form-control" required min="0">
-        </div>
-        <div class="mb-3">
-            <label>Stok</label>
-            <input type="number" name="stok" class="form-control" required min="0">
-        </div>
-        <div class="mb-3">
-            <label>jenis</label>
-            <input type="text" name="jenis" class="form-control" required maxlength="100">
-        </div>
-        <button type="submit" class="btn btn-success">Simpan</button>
-        <a href="read.php" class="btn btn-secondary">Kembali</a>
-    </form>
+    </div>
 </div>
+</body>
 </html>
