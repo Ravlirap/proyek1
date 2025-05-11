@@ -41,9 +41,6 @@ $result = mysqli_query($conn, $query);
             <li class="nav-item">
                 <a class="nav-link" href="../user/read.php">Data Users</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../laporan_penjualan/read.php">Laporan Penjualan</a>
-            </li>
         </ul>
         <form action="../logout.php" method="post" class="d-inline">
         <button type="submit" class="btn btn-danger btn-sm">Log Out</button>
@@ -66,6 +63,7 @@ $result = mysqli_query($conn, $query);
         <th>ID</th>
         <th>Nama</th>
         <th>Email</th>
+        <th class="text-center">Aksi</th>
       </tr>
     </thead>
     <tbody>
@@ -74,12 +72,18 @@ $result = mysqli_query($conn, $query);
         <td><?= htmlspecialchars($row['id']); ?></td>
         <td><?= htmlspecialchars($row['username']); ?></td>
         <td><?= htmlspecialchars($row['email']); ?></td>
-      </tr>
+        <td class="text-center">
+          <a href="update.php?id=<?= $row['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+          <a href="delete.php?id=<?= $row['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+        </td> 
       <?php } ?>
     </tbody>
-            </table>
-    </div>
-</div>
+    </table>
+  </div>
+  <div class="card-footer text-center">
+    <a href="create.php" class="btn btn-primary">Tambah Admin</a>
+  </div>
+  </div>
 </body>
 <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 </html>

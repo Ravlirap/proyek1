@@ -40,9 +40,6 @@ $result = mysqli_query($conn, $query);
             <li class="nav-item">
                 <a class="nav-link" href="#">Data Users</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../laporan_penjualan/read.php">Laporan Penjualan</a>
-            </li>
         </ul>
         <form action="../logout.php" method="post" class="d-inline">
         <button type="submit" class="btn btn-danger btn-sm">Log Out</button>
@@ -53,9 +50,13 @@ $result = mysqli_query($conn, $query);
   </div>
 </nav>
 
-<div class="container mt-5">
-  <h2 class="text-center">Data Users</h2>
-  <table class="table table-hover table-striped">
+<div class="container mt-5 pt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h3 class="mb-0 text-center">Data user</h3>
+        </div>
+        <div class="card-body ">
+    <table class="table table-hover table-striped">
     <thead>
       <tr>
         <th>ID</th>
@@ -77,7 +78,7 @@ $result = mysqli_query($conn, $query);
       <?php } ?>
     </tbody>
   </table>
-</div>
+  </div>
 </body>
 <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 </html>

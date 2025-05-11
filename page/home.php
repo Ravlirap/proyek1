@@ -199,17 +199,14 @@
         echo "<p>No products available</p>";
     }
       ?>
-                </div>
-                <button>lihat selengkapnya</button>
-            </section>
-
-            <!-- Feather Icons -->
-            <script>
-            feather.replace();
-            </script>
-
-            <!-- My Javascript -->
-            <script src="js/script.js"></script>
+        </div>
+        <div>
+        <a href="produk.php" class="btn-buy">Lihat Semua Produk</a>
+        </div>
+</section>
 </body>
-
+<!-- Feather Icons -->
+<script> feather.replace();</script>
+<!-- My Javascript -->
+<script src="js/script.js"></script>
 </html>

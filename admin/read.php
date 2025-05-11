@@ -41,9 +41,6 @@ $result = mysqli_query($conn, $query);
             <li class="nav-item">
                 <a class="nav-link" href="user/read.php">Data Users</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="laporan_penjualan/read.php">Laporan Penjualan</a>
-            </li>
         </ul>
         <form action="../logout.php" method="post" class="d-inline">
         <button type="submit" class="btn btn-danger btn-sm">Log Out</button>

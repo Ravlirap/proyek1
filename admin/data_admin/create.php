@@ -1,6 +1,6 @@
 <?php
 // Include database connection file
-require_once '../../config/database.php';
+include'../../database.php';
 
 // Initialize variables
 $name = $email = $password = "";
