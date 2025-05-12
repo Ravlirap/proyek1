@@ -1,6 +1,8 @@
 <?php
 include "navigasi/header.php";
 ?>
+
+
 <div class="content">
     <?php
     $page = isset($_GET['page']) ? $_GET['page'] : 'home';

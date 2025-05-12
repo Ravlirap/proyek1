@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Login sukses, simpan data user ke session
     $_SESSION["user_id"] = $user["id"];
     $_SESSION["nama"] = $user["nama"];
-    header("Location: index.php?halaman=profil");
+    header("Location: ../index.php?page=home");
     exit;
   } else {
     $error = "Email atau password salah!";

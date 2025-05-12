@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "INSERT INTO users (nama, email, password, telepon, alamat)
               VALUES ('$nama', '$email', '$password', '$telepon', '$alamat')";
     if (mysqli_query($conn, $query)) {
-      echo "<script>alert('Pendaftaran berhasil! Silakan login.'); window.location='index.php?halaman=login';</script>";
+      echo "<script>alert('Pendaftaran berhasil! Silakan login.'); window.location='login.php';</script>";
       exit;
     } else {
       $error = "Gagal mendaftar. Silakan coba lagi.";
@@ -29,8 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $user_id = mysqli_insert_id($conn);
 $_SESSION['user_id'] = $user_id;
 $_SESSION['nama'] = $_POST['nama'];
-
-header("Location: index.php?halaman=profil");
+header("Location:login.php");
 exit;
 
 }
