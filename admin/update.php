@@ -1,8 +1,8 @@
 <?php
 // Include database connection
 include '../database.php';
-$kode = $_GET['kode_produk'];
-$result = mysqli_query($conn, "SELECT * FROM produk WHERE kode_produk='$kode'");
+$id_produk = $_GET['id_produk'];
+$result = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk='$id_produk'");
 $data = mysqli_fetch_assoc($result);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
     $jenis = $_POST['jenis'];
-    mysqli_query($conn, "UPDATE produk SET nama='$nama',gambar='$gambar',harga='$harga',harga='$harga',stok='$stok', jenis='$jenis' WHERE kode_produk='$kode'");
+    mysqli_query($conn, "UPDATE produk SET nama='$nama',gambar='$gambar',harga='$harga',harga='$harga',stok='$stok', jenis='$jenis' WHERE id_produk='$id_produk'");
     header("location:read.php");
     exit;
 }
@@ -83,8 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2>Edit Produk</h2>
     <form method="POST">
         <div class="mb-3">
-            <label class="form-label">Kode Produk</label>
-            <input type="text" name="kode_produk" value="<?= htmlspecialchars($data['kode_produk']); ?>" class="form-control" readonly>
+            <label class="form-label">id_produk Produk</label>
+            <input type="text" name="id_produk" value="<?= htmlspecialchars($data['id_produk']); ?>" class="form-control" readonly>
         </div>
         <div class="mb-3">
             <label class="form-label">Nama Produk</label>

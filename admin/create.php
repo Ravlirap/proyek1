@@ -5,19 +5,19 @@ include '../database.php';
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $kode = $_POST['kode_produk'];
+    $id_produk = $_POST['id_produk'];
     $nama = $_POST['nama'];
     $gambar = $_POST['gambar'];
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
     $jenis = $_POST['jenis'];
 
-    // Validasi kode_kategori unik
-    $check = mysqli_query($conn, "SELECT * FROM produk WHERE kode_produk='$kode'");
+    // Validasi id_produk_kategori unik
+    $check = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk='$id_produk'");
     if (mysqli_num_rows($check) > 0) {
-        $error = "Kode kategori sudah digunakan!";
+        $error = "id_produk kategori sudah digunakan!";
     } else {
-        mysqli_query($conn, "INSERT INTO produk (kode_produk,nama,gambar,harga,stok,jenis) VALUES ('$kode', '$nama', '$gambar', '$harga', '$stok', '$jenis')");
+        mysqli_query($conn, "INSERT INTO produk (id_produk,nama,gambar,harga,stok,jenis) VALUES ('$id_produk', '$nama', '$gambar', '$harga', '$stok', '$jenis')");
         $_SESSION['success'] = "Data berhasil dibuat!";
         header("Location: create.php");
         exit;
@@ -68,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
                 <form method="POST">
                     <div class="mb-3">
-                        <label for="kode_produk" class="form-label">ID Produk</label>
-                        <input type="text" id="kode_produk" name="kode_produk" class="form-control" required maxlength="5">
+                        <label for="id_produk" class="form-label">ID Produk</label>
+                        <input type="text" id="id_produk" name="id_produk" class="form-control" required maxlength="5">
                     </div>
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama Produk</label>

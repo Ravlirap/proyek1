@@ -1,7 +1,7 @@
 <?php
 // Include database connection
 include '../database.php';
-$query = "SELECT * FROM produk ORDER BY kode_produk ASC";
+$query = "SELECT * FROM produk ORDER BY id_produk ASC";
 $result = mysqli_query($conn, $query);
 ?>
 
@@ -72,15 +72,15 @@ $result = mysqli_query($conn, $query);
                 <tbody>
                     <?php while($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                        <td><?= htmlspecialchars($row['kode_produk']); ?></td>
+                        <td><?= htmlspecialchars($row['id_produk']); ?></td>
                         <td><?= htmlspecialchars($row['nama']); ?></td>
                         <td><img src="../img/produk/<?= htmlspecialchars($row['gambar']); ?>" alt="Gambar Produk" style="width: 70px; height: 70px;"></td>
                         <td><?= htmlspecialchars(number_format($row['harga'], 2, ',', '.')); ?></td>
                         <td><?= htmlspecialchars($row['stok']); ?></td>
                         <td><?= htmlspecialchars($row['jenis']); ?></td>
                         <td class="text-center">
-                            <a href="update.php?kode_produk=<?= urlencode($row['kode_produk']); ?>" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="delete.php?kode_produk=<?= urlencode($row['kode_produk']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ini?')">Delete</a>
+                            <a href="update.php?id_produk=<?= urlencode($row['id_produk']); ?>" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="delete.php?id_produk=<?= urlencode($row['id_produk']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ini?')">Delete</a>
                         </td>
                     </tr>
                     <?php } ?>

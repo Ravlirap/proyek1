@@ -2,7 +2,6 @@
 include "navigasi/header.php";
 ?>
 
-
 <div class="content">
     <?php
     $page = isset($_GET['page']) ? $_GET['page'] : 'home';
@@ -12,6 +11,9 @@ include "navigasi/header.php";
             break;
         case 'produk':
             include "page/produk.php";
+            break;
+        case 'keranjang':
+            include "page/keranjang.php";
             break;
         case 'about':
             include "page/about.php";

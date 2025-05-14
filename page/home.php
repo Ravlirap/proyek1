@@ -18,6 +18,8 @@
 
     <!-- My Style -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+
     <style>
     .products {
         padding: 2rem;

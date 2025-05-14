@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScondTrf.</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    
 </head>
 <body>
 <nav class="navbar">
@@ -14,8 +15,8 @@
       </a>
 
       <div class="navbar-nav">
-        <a href="#home">Home</a>
-        <a href="#products">Produk</a>
+        <a href="index.php?page=home">Home</a>
+        <a href="index.php?page=produk">Produk</a>
         <a href="#about">Tentang Kami</a>
         <a href="auth/login.php">Login</a>
         <a href="../auth/signup.php">Sign Up</a>

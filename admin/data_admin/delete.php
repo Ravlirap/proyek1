@@ -2,10 +2,10 @@
 // Include database connection
 include '../../database.php';
 
-// Ambil kode_produk dari URL
+// Ambil id_produk dari URL
 $id = $_GET['id'];
 
-// Hapus data dari tabel produk berdasarkan kode_produk
+// Hapus data dari tabel produk berdasarkan id_produk
 mysqli_query($conn, "DELETE FROM admin WHERE id='$id'");
 
 // Redirect kembali ke halaman read.php

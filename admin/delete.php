@@ -2,11 +2,11 @@
 // Include database connection
 include '../database.php';
 
-// Ambil kode_produk dari URL
-$kode_produk = $_GET['kode_produk'];
+// Ambil id_produk dari URL
+$id_produk = $_GET['id_produk'];
 
-// Hapus data dari tabel produk berdasarkan kode_produk
-mysqli_query($conn, "DELETE FROM produk WHERE kode_produk='$kode_produk'");
+// Hapus data dari tabel produk berdasarkan id_produk
+mysqli_query($conn, "DELETE FROM produk WHERE id_produk='$id_produk'");
 
 // Redirect kembali ke halaman read.php
 header("Location: read.php");
