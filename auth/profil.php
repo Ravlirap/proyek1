@@ -55,67 +55,61 @@ body {
 }
 </style>
 
-<div class="container my-5">
+<div class="container mt-5">
   <div class="row justify-content-center">
-  <div class="col-lg-8">
-  <div class="profile-card">
-  <div class="row align-items-center">
-    <div class="col-md-4 text-center mb-4 mb-md-0">
-    <?php
-    // Proses upload foto_profile profil
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto_profile'])) {
-      $foto_profile = $_FILES['foto_profile'];
-      $allowed = ['jpg', 'jpeg', 'png', 'gif'];
-      $ext = strtolower(pathinfo($foto_profile['name'], PATHINFO_EXTENSION));
-      if ($foto_profile['error'] === 0 && in_array($ext, $allowed) && $foto_profile['size'] <= 2 * 1024 * 1024) {
-        $filename = 'profil_' . $user_id . '_' . time() . '.' . $ext;
-        $target = '../img/' . $filename;
-        if (move_uploaded_file($foto_profile['tmp_name'], $target)) {
-          // Simpan nama file ke database
-          mysqli_query($conn, "UPDATE users SET foto_profile='$filename' WHERE id=$user_id");
-          $user['foto_profile'] = $filename;
+    <div class="col-lg-6">
+      <div class="profile-card d-flex flex-column align-items-center">
+        <?php
+        // Proses upload foto_profile profil
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto_profile'])) {
+          $foto_profile = $_FILES['foto_profile'];
+          $allowed = ['jpg', 'jpeg', 'png', 'gif'];
+          $ext = strtolower(pathinfo($foto_profile['name'], PATHINFO_EXTENSION));
+          if ($foto_profile['error'] === 0 && in_array($ext, $allowed) && $foto_profile['size'] <= 2 * 1024 * 1024) {
+            $filename = 'profil_' . $user_id . '_' . time() . '.' . $ext;
+            $target = '../img/' . $filename;
+            if (move_uploaded_file($foto_profile['tmp_name'], $target)) {
+              // Simpan nama file ke database
+              mysqli_query($conn, "UPDATE users SET foto_profile='$filename' WHERE id=$user_id");
+              $user['foto_profile'] = $filename;
+            }
+          }
         }
-      }
-    }
 
-    // Ambil nama file foto_profile dari database jika ada
-    $foto_profile_profil = !empty($user['foto_profile']) ? '../img/' . $user['foto_profile'] : '../img/profil.jpeg';
-    ?>
-    <img src="<?= htmlspecialchars($foto_profile_profil) ?>" alt="foto_profile Profil" class="profile-img shadow-sm">
-    <form method="post" enctype="multipart/form-data" class="mt-2">
-      <input type="file" name="foto_profile" accept="image/*" class="form-control form-control-sm mb-2">
-      <button type="submit" class="btn btn-sm btn-outline-primary">Upload foto_profile</button>
-    </form>
-    <h5 class="fw-bold mt-3 mb-1"><?= htmlspecialchars($user['nama']) ?></h5>
-    <span class="badge bg-primary"><?= htmlspecialchars($user['email']) ?></span>
+        // Ambil nama file foto_profile dari database jika ada
+        $foto_profile_profil = !empty($user['foto_profile']) ? '../img/' . $user['foto_profile'] : '../img/profil.jpeg';
+        ?>
+        <img src="<?= htmlspecialchars($foto_profile_profil) ?>" alt="foto_profile Profil" class="profile-img shadow-sm mb-3">
+        <form method="post" enctype="multipart/form-data" class="w-100 mb-3">
+          <input type="file" name="foto_profile" accept="image/*" class="form-control form-control-sm mb-2">
+          <button type="submit" class="btn btn-sm btn-outline-primary w-100">Upload foto_profile</button>
+        </form>
+        <h5 class="fw-bold mt-2 mb-1"><?= htmlspecialchars($user['nama']) ?></h5>
+        <span class="badge bg-primary mb-3"><?= htmlspecialchars($user['email']) ?></span>
+        <h4 class="mb-3 fw-semibold border-bottom pb-2 w-100 text-center">Informasi Akun</h4>
+        <table class="table table-borderless profile-info mb-0 w-100">
+          <tr>
+            <th>Nama Lengkap</th>
+            <td>: <?= htmlspecialchars($user['nama']) ?></td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>: <?= htmlspecialchars($user['email']) ?></td>
+          </tr>
+          <tr>
+            <th>No. Telepon</th>
+            <td>: <?= htmlspecialchars($user['telepon']) ?></td>
+          </tr>
+          <tr>
+            <th>Alamat</th>
+            <td>: <?= nl2br(htmlspecialchars($user['alamat'])) ?></td>
+          </tr>
+        </table>
+        <div class="mt-4 d-flex gap-2 w-100 justify-content-center">
+          <a href="logout.php" class="btn btn-danger px-4">Logout</a>
+          <a href="../index.php" class="btn btn-secondary px-4">Kembali</a>
+        </div>
+      </div>
     </div>
-    <div class="col-md-8">
-    <h4 class="mb-4 fw-semibold border-bottom pb-2">Informasi Akun</h4>
-    <table class="table table-borderless profile-info mb-0">
-    <tr>
-    <th>Nama Lengkap</th>
-    <td>: <?= htmlspecialchars($user['nama']) ?></td>
-    </tr>
-    <tr>
-    <th>Email</th>
-    <td>: <?= htmlspecialchars($user['email']) ?></td>
-    </tr>
-    <tr>
-    <th>No. Telepon</th>
-    <td>: <?= htmlspecialchars($user['telepon']) ?></td>
-    </tr>
-    <tr>
-    <th>Alamat</th>
-    <td>: <?= nl2br(htmlspecialchars($user['alamat'])) ?></td>
-    </tr>
-    </table>
-    <div class="mt-4 d-flex gap-2">
-    <a href="logout.php" class="btn btn-danger px-4">Logout</a>
-    <a href="../index.php" class="btn btn-secondary px-4">Kembali</a>
-    </div>
-    </div>
-  </div>
-  </div>
-  </div>
   </div>
 </div>

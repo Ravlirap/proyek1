@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include '../database.php';
+include '../../database.php';
 
 // Ambil id_produk dari URL
 $id_produk = $_GET['id_produk'];

@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include '../database.php';
+include '../../database.php';
 $id_produk = $_GET['id_produk'];
 $result = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk='$id_produk'");
 $data = mysqli_fetch_assoc($result);
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Produk</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <style>
         body {
             background-color: #f4f6f9;
@@ -112,6 +112,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </form>
 </div>
-<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

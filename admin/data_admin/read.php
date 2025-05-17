@@ -33,7 +33,7 @@ $result = mysqli_query($conn, $query);
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../read.php">Data Produk</a>
+                <a class="nav-link active" aria-current="page" href="../produk/read.php">Data Produk</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Data Admin</a>
