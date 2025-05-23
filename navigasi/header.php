@@ -24,7 +24,7 @@
 
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+        <a href="index.php?page=keranjang" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
         <a href="../auth/profil.php" id="user-button"><i data-feather="user"></i></a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
         

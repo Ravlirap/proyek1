@@ -1,7 +1,7 @@
 <?php
 include '../../database.php';
 
-$query = "SELECT id, nama, email, telepon, alamat FROM users ORDER BY id ASC";
+$query = "SELECT id_user, nama, email, telepon, alamat FROM users ORDER BY id_user ASC";
 $result = mysqli_query($conn, $query);
 ?>
 
@@ -69,7 +69,7 @@ $result = mysqli_query($conn, $query);
     <tbody>
       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
       <tr>
-        <td><?= htmlspecialchars($row['id']); ?></td>
+        <td><?= htmlspecialchars($row['id_user']); ?></td>
         <td><?= htmlspecialchars($row['nama']); ?></td>
         <td><?= htmlspecialchars($row['email']); ?></td>
         <td><?= htmlspecialchars($row['telepon']); ?></td>

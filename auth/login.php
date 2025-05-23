@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($user && password_verify($password, $user["password"])) {
     // Login sukses, simpan data user ke session
-    $_SESSION["user_id"] = $user["id"];
+    $_SESSION["id_user"] = $user["id_user"];
     $_SESSION["nama"] = $user["nama"];
     header("Location: ../index.php?page=home");
     exit;

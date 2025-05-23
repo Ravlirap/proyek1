@@ -2,13 +2,13 @@
 session_start();
 include '../database.php'; // koneksi ke database
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['id_user'])) {
   echo "<script>alert('Silakan login terlebih dahulu.'); window.location='login.php';</script>";
   exit;
 }
 
-$user_id = $_SESSION['user_id'];
-$query = mysqli_query($conn, "SELECT * FROM users WHERE id = $user_id");
+$id_user = $_SESSION['id_user'];
+$query = mysqli_query($conn, "SELECT * FROM users WHERE id_user = $id_user");
 $user = mysqli_fetch_assoc($query);
 ?>
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -66,11 +66,11 @@ body {
           $allowed = ['jpg', 'jpeg', 'png', 'gif'];
           $ext = strtolower(pathinfo($foto_profile['name'], PATHINFO_EXTENSION));
           if ($foto_profile['error'] === 0 && in_array($ext, $allowed) && $foto_profile['size'] <= 2 * 1024 * 1024) {
-            $filename = 'profil_' . $user_id . '_' . time() . '.' . $ext;
+            $filename = 'profil_' . $id_user . '_' . time() . '.' . $ext;
             $target = '../img/' . $filename;
             if (move_uploaded_file($foto_profile['tmp_name'], $target)) {
               // Simpan nama file ke database
-              mysqli_query($conn, "UPDATE users SET foto_profile='$filename' WHERE id=$user_id");
+              mysqli_query($conn, "UPDATE users SET foto_profile='$filename' WHERE id_user=$id_user");
               $user['foto_profile'] = $filename;
             }
           }
