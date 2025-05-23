@@ -3,7 +3,7 @@ session_start();
 include './database.php';
 
 if (!isset($_SESSION['id_user'])) {
-    header("Location: index.php?page=login");
+    header("Location: ../auth/login.php");
     exit();
 }
 

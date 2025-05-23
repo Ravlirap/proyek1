@@ -139,6 +139,4 @@
 </body>
 <!-- Feather Icons -->
 <script> feather.replace();</script>
-<!-- My Javascript -->
-<script src="js/script.js"></script>
 </html>

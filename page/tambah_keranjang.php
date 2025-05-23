@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_produk'])) {
     $id_user = $_SESSION['id_user'] ?? 0;
 
     if ($id_user == 0) {
-        header('Location: ../index.php?page=login');
+        header('Location: ../auth/login.php ');
         exit;
     }
 

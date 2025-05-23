@@ -11,7 +11,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/nav.css">
-
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
@@ -57,5 +57,6 @@
         </div>
     </section>
 </body>
-
+<!-- Feather Icons -->
+<script> feather.replace();</script>
 </html>
