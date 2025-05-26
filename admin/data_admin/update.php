@@ -6,9 +6,9 @@ $result = mysqli_query($conn, "SELECT * FROM admin WHERE id='$id'");
 $data = mysqli_fetch_assoc($result);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
+    $name = $_POST['name'];
     $email = $_POST['email'];
-    mysqli_query($conn, "UPDATE admin SET username='$username', password='$password',email='$email' WHERE id='$id'");
+    mysqli_query($conn, "UPDATE admin SET name='$name', password='$password',email='$email' WHERE id='$id'");
     header("location:read.php");
     exit;
 }
@@ -80,8 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2>Edit Data Admin</h2>
     <form method="POST">
         <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" id="username" name="username" class="form-control" value="<?php echo $data['username']; ?>" required>
+            <label for="name" class="form-label">name</label>
+            <input type="text" id="name" name="name" class="form-control" value="<?php echo $data['name']; ?>" required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>

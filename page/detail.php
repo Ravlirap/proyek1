@@ -112,5 +112,7 @@ if (isset($_GET['id_produk'])) {
         </div>
     </section>
 </body>
-
+<script>
+    feather.replace();
+</script>
 </html>

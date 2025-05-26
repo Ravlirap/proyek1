@@ -1,6 +1,6 @@
 <?php
 // Include database connection file
-include'../../database.php';
+include '../../database.php';
 
 // Initialize variables
 $name = $email = $password = "";
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check for errors before inserting into database
     if (empty($name_err) && empty($email_err) && empty($password_err)) {
-        $sql = "INSERT INTO admins (name, email, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO admin (name, email, password) VALUES (?, ?, ?)";
 
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param("sss", $param_name, $param_email, $param_password);
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_password = $password;
 
             if ($stmt->execute()) {
-                header("location: index.php");
+                header("location: read.php");
                 exit();
             } else {
                 echo "Something went wrong. Please try again later.";
@@ -65,28 +65,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h2>Create Admin</h2>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div>
-            <label>Name</label>
-            <input type="text" name="name" value="<?php echo $name; ?>">
-            <span><?php echo $name_err; ?></span>
-        </div>
-        <div>
-            <label>Email</label>
-            <input type="email" name="email" value="<?php echo $email; ?>">
-            <span><?php echo $email_err; ?></span>
-        </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="password">
-            <span><?php echo $password_err; ?></span>
-        </div>
-        <div>
-            <input type="submit" value="Submit">
-        </div>
-    </form>
+    <div class="container mt-5">
+        <h2 class="mb-4">Create Admin</h2>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($name); ?>" required>
+                <div class="invalid-feedback">
+                    <?php echo $name_err; ?>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($email); ?>" required>
+                <div class="invalid-feedback">
+                    <?php echo $email_err; ?>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" required>
+                <div class="invalid-feedback">
+                    <?php echo $password_err; ?>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="read.php" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

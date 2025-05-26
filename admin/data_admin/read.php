@@ -1,7 +1,7 @@
 <?php
 include '../../database.php';
 
-$query = "SELECT id, username, email FROM admin ORDER BY id ASC";
+$query = "SELECT id, name, email FROM admin ORDER BY id ASC";
 $result = mysqli_query($conn, $query);
 ?>
 
@@ -70,7 +70,7 @@ $result = mysqli_query($conn, $query);
       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
       <tr>
         <td><?= htmlspecialchars($row['id']); ?></td>
-        <td><?= htmlspecialchars($row['username']); ?></td>
+        <td><?= htmlspecialchars($row['name']); ?></td>
         <td><?= htmlspecialchars($row['email']); ?></td>
         <td class="text-center">
           <a href="update.php?id=<?= $row['id']; ?>" class="btn btn-warning btn-sm">Edit</a>

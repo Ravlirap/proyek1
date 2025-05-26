@@ -97,6 +97,7 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="css/style.css">
     <!-- Tambahkan ini di dalam <head> sebelum </head> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
     <style>
     .cart-container {
         max-width: 800px;
@@ -241,5 +242,5 @@ $result = $stmt->get_result();
     </script>
 
 </body>
-
+<script> feather.replace();</script>
 </html>
