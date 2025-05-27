@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border: none;
         }
         .btn-primary:hover {
-            background-color:rgb(37, 252, 91);
+            background-color:rgb(21, 0, 255);
         }
         .form-label {
             color: #333;

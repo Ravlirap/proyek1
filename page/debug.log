@@ -4,3 +4,5 @@ Action: hapus, ID: 3
 Action: remove, ID: 1
 Action: hapus, ID: 4
 Action: remove, ID: 1
+Action: hapus, ID: 6
+Action: hapus, ID: 5
