@@ -1,6 +1,6 @@
 <?php
-
 include '../database.php';
+
 // Contoh: Ambil jumlah data (ganti query sesuai kebutuhan)
 $produk_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM produk"))['total'];
 $admin_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM admin"))['total'];

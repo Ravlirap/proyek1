@@ -1,7 +1,7 @@
 <?php
 session_start();
-// Include database connection
 include '../../database.php';
+$error = "";
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
