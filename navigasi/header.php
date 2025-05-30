@@ -1,3 +1,9 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +23,11 @@
       <div class="navbar-nav">
         <a href="index.php?page=home">Home</a>
         <a href="index.php?page=produk">Produk</a>
-        <a href="#about">Tentang Kami</a>
-        <a href="auth/login.php">Login</a>
-        <a href="../auth/signup.php">Sign Up</a>
+        <a href="index.php?page=about">About Store</a>
+        <?php if (!isset($_SESSION['user'])): ?>
+                <a href="auth/login.php" class="text-white me-3">Login</a>
+                <a href="../auth/signup.php" class="text-white">Sign Up</a>
+        <?php endif; ?>
       </div>
 
       <div class="navbar-extra">

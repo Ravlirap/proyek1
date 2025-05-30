@@ -1,6 +1,12 @@
 <?php
 session_start();
 include '../database.php'; // koneksi ke database
+$_SESSION['user'] = $username;
+// Cek apakah user sudah login 
+if (isset($_SESSION["id_user"])) {
+    header("Location: ../index.php?page=home");
+    exit;
+}
 
 // Proses login jika form disubmit
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

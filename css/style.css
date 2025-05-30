@@ -378,7 +378,7 @@ h1 {
   padding: 8px 8px 6px 8px;
   color: white;
 }
-/* produk section */
+
 
 /* Mobile Phone */
 @media (max-width: 450px) {
@@ -386,6 +386,8 @@ h1 {
     font-size: 55%;
   }
 }
+
+/* produk section */
 .products {
   padding: 2rem;
   text-align: center;
@@ -453,7 +455,7 @@ h1 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: #1a1aff;
+  background: #5656ff;
   color: #fff;
   border: none;
   padding: 0.75rem;

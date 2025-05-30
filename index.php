@@ -12,6 +12,9 @@ include "navigasi/header.php";
         case 'produk':
             include "page/produk.php";
             break;
+        case 'about':
+            include "page/about.php";
+            break;
         case 'detail':
             include "page/detail.php";
             break;
