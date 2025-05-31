@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $user_id = mysqli_insert_id($conn);
 $_SESSION['user_id'] = $user_id;
 $_SESSION['nama'] = $_POST['nama'];
-header("Location:login.php");
+header("Location: index.php?page=login");
 exit;
 
 }

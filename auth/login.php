@@ -1,12 +1,6 @@
 <?php
 session_start();
 include '../database.php'; // koneksi ke database
-$_SESSION['user'] = $username;
-// Cek apakah user sudah login 
-if (isset($_SESSION["id_user"])) {
-    header("Location: ../index.php?page=home");
-    exit;
-}
 
 // Proses login jika form disubmit
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Login sukses, simpan data user ke session
     $_SESSION["id_user"] = $user["id_user"];
     $_SESSION["nama"] = $user["nama"];
+    $_SESSION['user'] = $username;
     header("Location: ../index.php?page=home");
     exit;
   } else {
@@ -122,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Belum punya akun? <a href="../auth/signup.php" class="text-primary">Daftar di sini</a>
                     </div>
                     <div class="mt-4 text-center mb-3 md-3">
-                        <a href="../index.php" class="btn btn-secondary">Kembali ke Beranda</a>
+                        <a href=" ../index.php?page=home" class="btn btn-secondary">Kembali ke Beranda</a>
                     </div>
                 </div>
             </div>

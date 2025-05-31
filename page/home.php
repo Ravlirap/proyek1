@@ -38,26 +38,37 @@
     <h1>Popular Brand</h1>
     <section id="merek" class="merek">
         <div class="merek-box">
-            <img src="img/feltics.jpg" alt="feltics" />
-            <h3>Feltics</h3>
+            <a href="index.php?page=feltics">
+                <img src="img/feltics.jpg" alt="feltics" />
+                <h3>Feltics</h3>
+            </a>
         </div>
         <div class="merek-box">
-            <img src="img/adidas.jpg" alt="adidas" />
-            <h3>Adidas</h3>
+            <a href="index.php?page=adidas">
+                <img src="img/adidas.jpg" alt="adidas" />
+                <h3>Adidas</h3>
+            </a>
         </div>
         <div class="merek-box">
-            <img src="img/dickies.jpg" alt="dickiess" />
-            <h3>Dickiess</h3>
+            <a href="index.php?page=dickiess">
+                <img src="img/dickies.jpg" alt="dickiess" />
+                <h3>Dickiess</h3>
+            </a>
         </div>
         <div class="merek-box">
-            <img src="img/stone island.jpg" alt="stone island" />
-            <h3>Stone Island</h3>
+            <a href="index.php?page=stone">
+                <img src="img/stone island.jpg" alt="stone island" />
+                <h3>Stone Island</h3>
+            </a>
         </div>
         <div class="merek-box">
-            <img src="img/carhart.png" alt="carhart" />
-            <h3>Carhart</h3>
+            <a href="index.php?page=carhart">
+                <img src="img/carhart.png" alt="carhart" />
+                <h3>Carhart</h3>
+            </a>
         </div>
-        <!-- Merek Section end -->
+    </section>
+    <!-- Merek Section end -->
 
         <!-- About Section -->
         <section id="about" class="about">

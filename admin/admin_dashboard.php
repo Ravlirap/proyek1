@@ -99,7 +99,7 @@ $traffic_count = 999; // Ganti dengan data traffic sebenarnya jika ada
                 <a class="nav-link" href="data_admin/read.php"><i class="bi bi-person-gear"></i> Data Admin</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="data_users/read.php"><i class="bi bi-people"></i> Data Users</a>
+                <a class="nav-link" href="user/read.php"><i class="bi bi-people"></i> Data Users</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="bi bi-graph-up"></i> Traffic</a>
@@ -160,7 +160,7 @@ $traffic_count = 999; // Ganti dengan data traffic sebenarnya jika ada
                     <div class="card-icon mb-2"><i class="bi bi-people"></i></div>
                     <div class="card-count"><?= $user_count ?></div>
                     <h5 class="card-title">Data Users</h5>
-                    <a href="data_users/read.php" class="btn btn-light btn-sm mt-2">Lihat Users</a>
+                    <a href="user/read.php" class="btn btn-light btn-sm mt-2">Lihat Users</a>
                 </div>
             </div>
         </div>

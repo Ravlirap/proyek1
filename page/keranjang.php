@@ -1,12 +1,11 @@
 <?php
-session_start();
 include './database.php';
 
+// Cek apakah user sudah login
 if (!isset($_SESSION['id_user'])) {
-    header("Location: ../auth/login.php");
+    header("Location: auth/login.php");
     exit();
 }
-
 $id_user = $_SESSION['id_user'];
 
 // Tambah jumlah

@@ -12,9 +12,6 @@ include "navigasi/header.php";
         case 'produk':
             include "page/produk.php";
             break;
-        case 'about':
-            include "page/about.php";
-            break;
         case 'detail':
             include "page/detail.php";
             break;
@@ -24,17 +21,38 @@ include "navigasi/header.php";
         case 'about':
             include "page/about.php";
             break;
+        case 'riwayat':
+            include "page/riwayat.php";
+            break;
         case 'login':
-            include 'auth/login.php';
+            include "auth/login.php";
             break;
         case 'signup':
-            include 'auth/signup.php';
+            include "auth/signup.php";
             break;
         case 'profil':
-            include 'auth/profil.php';
+            include "auth/profil.php";
+            break;
+        case 'checkout':
+            include "page/checkout.php";
+            break;
+        case 'dickiess':
+            include "page/brand/dickiess.php";
+            break;
+        case 'feltics';
+            include "page/brand/feltics.php";
+            break;
+        case 'adidas';
+            include "page/brand/adidas.php";
+            break;
+        case 'stone';
+            include "page/brand/stone.php";
+            break;
+        case 'carhart';
+            include "page/brand/carhart.php";
             break;
         default:
-            include "home.php";
+            include "page/home.php";
             break;
     }
     ?>

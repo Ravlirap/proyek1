@@ -46,20 +46,22 @@ if (isset($_GET['id_produk'])) {
     <style>
     .detail-container {
         max-width: 800px;
-        margin: auto;
-        padding: 20px;
+        margin: 16px auto 40px auto;
+        padding: 22px 24px;
         border: 1px solid #ddd;
         display: flex;
         gap: 20px;
-        background-color: rgb(228, 220, 220);
+        background-color: rgb(230, 230, 230);
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         color: black;
+        align-items: flex-start;
     }
 
     .detail-container img {
         max-width: 300px;
-        border-radius: 8px;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
 
     .product-info {
@@ -78,11 +80,23 @@ if (isset($_GET['id_produk'])) {
         font-weight: bold;
         border-radius: 5px;
         text-align: center;
+        background-color: #2d08ff;
+    }
+
+    .btn-cart:hover:enabled {
+        background-color: rgb(46, 0, 183);
     }
 
     .btn-cart:disabled {
         background-color: grey;
         cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.7;
+    }
+
+    .btn-cart:disabled:hover {
+        background-color: grey;
+        color: #fff;
     }
     </style>
 </head>
@@ -99,7 +113,7 @@ if (isset($_GET['id_produk'])) {
                 <p>Jenis: <?= htmlspecialchars($produk['jenis']) ?></p>
                 <p>Stok: <?= $produk['stok'] ?></p>
                 <p>Harga: Rp<?= number_format($produk['harga'], 0, ',', '.') ?></p>
-                <p>Hoodie keren, stok terbatas, harga terangkau!</p>
+                <p>Hoodie keren, stok terbatas, dan harga terangkau!</p>
                 <?php if ($produk['stok'] > 0): ?>
                 <form action="page/tambah_keranjang.php" method="POST">
                     <input type="hidden" name="id_produk" value="<?= $produk['id_produk'] ?>">
@@ -113,6 +127,7 @@ if (isset($_GET['id_produk'])) {
     </section>
 </body>
 <script>
-    feather.replace();
+feather.replace();
 </script>
+
 </html>
